@@ -1,2 +1,2 @@
 # Oc-Mai
-Nothing 
+Dont write bad C code)
