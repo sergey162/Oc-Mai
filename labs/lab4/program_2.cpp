@@ -4,22 +4,16 @@
 #include <cstddef>
 
 static std::string gcf_lib_path = "./libs/libgcf.so";
-
 static std::string simple_numbers_lib_path = "./libs/libsimplenumbers.so";
-
 using FunctionType = std::int32_t(*)(std::int32_t, std::int32_t);
-
 enum class Commands {Change, First, Second, Exit};
-
 std::istream& operator>>(std::istream& in, Commands& command) {
   std::int32_t number = 0;
   in >> number;
   command = static_cast<Commands>(number);
   return in;
 }
-
 enum class FunctionVersions {GSF, SimpleNumbers};
-
 auto main() -> int {
   void* gcf_lib = dlopen(gcf_lib_path.c_str(), RTLD_LAZY);
   void* simple_numbers_lib = dlopen(simple_numbers_lib_path.c_str(), RTLD_LAZY);
